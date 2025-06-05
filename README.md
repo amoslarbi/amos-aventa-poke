@@ -8,10 +8,19 @@ A full-stack application to fetch, store, and display Pokémon data from PokeAPI
 - Python 3.11 (for local backend development)
 
 
+# Must Read
+I commented out the .env files in the gitignore because I wanted to reduce the build and run process of the application and not having to use example.env.
+I am very much aware not to commit .env files. I maintained them because variables in .env files help in configuration that might change between environments.
+
+
 # Build and Run Docker:
-- Run this command in terminal: docker-compose up --build
-- Access Frontend via: http://localhost:3000/pokemon
-- Access Backend via: http://localhost:8000
+- Ensure ports 3000 and 8000 are free
+- Run this command in the terminal of the root directory (amos-aventa-poke-master)
+    - docker-compose up --build
+- Access Frontend via
+    - http://localhost:3000/pokemon
+- Access Backend via
+    - http://localhost:8000
 
 
 # Usage
@@ -120,4 +129,3 @@ Set NEXT_PUBLIC_API_BASE_URL=http://localhost:8000/pokemon in frontend/.env.
 - Adding new Pokémons by name
 - Pokémon details page
 - Writing more test cases
-
