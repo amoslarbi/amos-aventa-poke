@@ -9,8 +9,7 @@ A full-stack application to fetch, store, and display Pokémon data from PokeAPI
 
 
 # Must Read
-I commented out the .env files in the gitignore because I wanted to reduce the build and run process of the application and not having to use example.env.
-I am very much aware not to commit .env files. I maintained them because variables in .env files help in configuration that might change between environments.
+I temporarily removed the .env files from .gitignore to streamline the application's build and runtime processes, specifically to eliminate the additional step of managing a separate example.env file. I fully understand the importance of keeping sensitive information out of version control and have ensured no secrets are committed. The content of the env files are base urls, I used that approach for the purpuse of the challenge. The .env files are retained purely for managing environment-specific configurations, as they provide a flexible and centralized way to define variables that differ across development, staging, and production environments.
 
 
 # Build and Run Docker:
