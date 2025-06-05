@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file:
+      - ./backend/.env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/pokemon.db:/app/backend/pokemon.db
+    environment:
+      - PYTHONUNBUFFERED=1
+      - ./backend/.env
+    networks:
+      - pokemon-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    env_file:
+      - ./frontend/.env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - NODE_ENV=production
+    networks:
+      - pokemon-network
+
+networks:
+  pokemon-network:
+    driver: bridge
