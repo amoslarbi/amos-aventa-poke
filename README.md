@@ -117,12 +117,15 @@ Set NEXT_PUBLIC_API_BASE_URL=http://localhost:8000/pokemon in frontend/.env.
 
 
 # Troubleshooting
+- In the event where subsequent docker rebuilds causes a malfunction, clear the local storage value: “hasFetchedPokemon” and run this command in the root directory:
+    - docker-compose down && cd backend && rm -rf pokemon.db && cd .. && docker-compose up --build
 - CORS Errors: Ensure allow_origins in backend/main.py includes your frontend URL.
 - 500 Errors: Check backend logs (docker-compose logs backend) for PokeAPI or database issues. Test PokeAPI: curl https://pokeapi.co/api/v2/pokemon?limit=20.
 - Frontend Fails to Load: Verify NEXT_PUBLIC_API_BASE_URL and backend availability. Check frontend logs: docker-compose logs frontend.
-- Database Issues: Ensure pokemon.db is writable. Delete and restart to recreate: rm pokemon.db && docker-compose up --build.
+- Database Issues: Ensure pokemon.db is writable. Delete and restart to recreate: cd backend && rm -rf pokemon.db && cd .. && docker-compose up --build.
 
 # Limitations
+- The SQLite file is being saved inside the container, so it is deleted when the container stops or rebuilds. The solution would be to ensure SQLite persistence by using a volume or bind mount, this would prevent it from being wiped after docker rebuilds.
 - Error Feedback: Basic error logging in frontend; will consider adding user-facing notifications.
 - Backend Startup: depends_on in Docker Compose doesn't guarantee backend readiness. Add a health check for production.
 - Adding new Pokémons by name
