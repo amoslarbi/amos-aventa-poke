@@ -8,10 +8,6 @@ A full-stack application to fetch, store, and display Pokémon data from PokeAPI
 - Python 3.11 (for local backend development)
 
 
-# Must Read
-I temporarily removed the .env files from .gitignore to streamline the application's build and runtime processes, specifically to eliminate the additional step of managing a separate example.env file. I fully understand the importance of keeping sensitive information out of version control and have ensured no secrets are committed. The content of the env files are base urls, I used that approach for the purpuse of the challenge. The .env files are retained purely for managing environment-specific configurations, as they provide a flexible and centralized way to define variables that differ across development, staging, and production environments.
-
-
 # Build and Run Docker:
 - Ensure ports 3000 and 8000 are free
 - Run this command in the terminal of the root directory (amos-aventa-poke-master)
